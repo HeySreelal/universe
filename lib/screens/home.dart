@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:heysreelal/const.dart';
+import 'package:heysreelal/widgets/social_button.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -76,6 +77,27 @@ class HomeState extends State<Home> {
                 color: Colors.white,
               ),
             ),
+            const SizedBox(
+              height: 20,
+            ),
+            Text(
+              "💬 Connect",
+              style: Theme.of(context).textTheme.headline6?.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: HeySreelal.socialProfiles
+                    .map((e) => SocialButton(profile: e))
+                    .toList(),
+              ),
+            )
           ],
         ),
       ),
